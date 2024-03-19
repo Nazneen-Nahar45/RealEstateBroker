@@ -28,6 +28,12 @@
                     <li class="nav-item">
                         <a class="nav-link " href="{% url 'rent' %}">Rent</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="#">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="{% url 'profile' %}">Profile</a>
+                    </li>
                 </ul>
                 <form class="d-flex" id="searchForm">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput">
@@ -35,12 +41,7 @@
                 </form>
             </div>
 
-            <a class="navbar-brand" href="#">
-                <img src="https://i.ibb.co/D8yGXRJ/notify.png" alt="Notifications" width="40" height="40">
-            </a>
-            <a class="navbar-brand" href="{% url 'profile' %}">
-                <img class="rounded-circle shadow-4-strong" alt="Bootstrap" src="https://i.ibb.co/fGrHNNG/user.webp" width="90" height="90"/>
-            </a>
+            
         </div>
     </nav>
 
