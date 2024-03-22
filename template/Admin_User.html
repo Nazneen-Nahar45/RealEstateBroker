@@ -7,10 +7,10 @@
     <script src="https://use.fontawesome.com/f59bcd8580.js"></script>
     <style>
         body, html {
-            height: 100%;
+            height: 70%;
         }
         .container {
-            height: 100%;
+            height: 70%;
             display: flex;
             justify-content: middle;
             align-items: middle;
@@ -33,11 +33,11 @@
                 <div class="row justify-content-center">
                     <div class="col-md-6 text-center">
                         <img src="https://raw.githubusercontent.com/NishatTasnim01/Science-Bee/53e88a98407299e4d9ebab3ab468b21407678bf2/investor.png" alt="Image 1" class="img-fluid mb-3">
-                        <a href="User_Signup.html" class="btn btn-primary btn-lg">Customer</a>
+                        <a href= "{% url 'user_sign' %}"  class="btn btn-primary btn-lg">Customer</a>
                     </div>
                     <div class="col-md-6 text-center">
                         <img src="https://raw.githubusercontent.com/NishatTasnim01/Science-Bee/53e88a98407299e4d9ebab3ab468b21407678bf2/customer-service.png" alt="Image 2" class="img-fluid mb-3">
-                        <a href="Admin_Signup.html" class="btn btn-success btn-lg">Agent</a>
+                        <a href="{% url 'agent_sign' %}" class="btn btn-success btn-lg">Agent</a>
                     </div>
                 </div>
             </div>

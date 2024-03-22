@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html>
+{% extends "navbar.html" %}
+
 <head>
     <meta charset="utf-8">
     <title>FAQ</title>
@@ -52,6 +52,9 @@
 </head>
 
 <body>
+
+    {% block content %}
+
 <div class="container">
     <div class="row">
         <div class="faq-wrapper">
@@ -115,7 +118,7 @@
         </div>
     </div>
 </div>
-
+   {% endblock %}
 <script type="text/javascript">
     $(".faq-plus").on('click',function(){
         $(this).parent().parent().find('.faq-body').slideToggle();

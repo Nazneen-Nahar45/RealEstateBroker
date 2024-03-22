@@ -20,7 +20,16 @@ from realestate import views as r_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',r_view.buy, name= 'buy'),
+    path('',r_view.firstpage, name= 'firstpage'),
+    path('user_sign/',r_view.user_sign,name = 'user_sign'),
+    path('agent_sign/',r_view.agent_sign,name = 'agent_sign'),
+    path('user_login/', r_view.user_login,name = 'user_login'),
+    path('agent_login/' , r_view.agent_login, name='agent_login'),
+    path('user_home/',r_view.user_home,name ='user_home'),
+    path('user_sell/',r_view.user_sell,name='user_sell'),
+    path('agent_sell/',r_view.agent_sell,name='agent_sell'),
+    path('agent_home/',r_view.agent_home,name ='agent_home'),
+    path('buy/',r_view.buy, name= 'buy'),
     path('rent/' ,r_view.rent, name='rent'),
     path('buyhome1/' ,r_view.buyhome1, name='buyhome1'),
     path('buyhome2/' ,r_view.buyhome2, name='buyhome2'),
@@ -29,6 +38,6 @@ urlpatterns = [
     path('confirm/' ,r_view.confirm, name='confirm'),
     path('profile/' ,r_view.profile, name='profile'),
     path('agent/' ,r_view.agent, name='agent'),
-
+    path('faq/',r_view.faq,name='faq'),
 
 ]

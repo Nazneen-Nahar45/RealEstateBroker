@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "navbar.html" %}
 <head>
     <meta charset="UTF-8">
     <title>Login Form</title>
@@ -29,6 +28,8 @@
     </style>
 </head>
 <body>
+    {% block content %}
+
 <div class="container">
     <div class="row m-5 no-gutters shadow-lg">
         <div class="col-md-6 d-none d-md-block">
@@ -67,5 +68,6 @@
         </div>
     </div>
 </div>
+   {% endblock %}
 </body>
 </html>

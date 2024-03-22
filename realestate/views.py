@@ -32,3 +32,33 @@ def profile(request):
 def agent(request):
     return render(request,template_name='agent.html')
 
+def firstpage(request):
+    return render(request,template_name='Admin_User.html')
+
+def user_sign(request):
+    return render(request,template_name='User_Signup.html')
+
+def user_login(request):
+    return render(request,template_name='User_Login.html')
+
+def user_home(request):
+    return render(request,template_name='User_Home.html')
+
+def user_sell(request):
+    return render(request,template_name='Customer_Sell.html')
+
+
+def agent_sign(request):
+    return render(request,template_name='Admin_Signup.html')
+
+def agent_login(request):
+    return render(request,template_name='Admin_Login.html')
+
+def agent_home(request):
+    return render(request,template_name='agent_home.html')
+
+def agent_sell(request):
+    return render(request,template_name='Agent_Sell.html')
+
+def faq(request):
+    return render(request,template_name='FAQ.html')
