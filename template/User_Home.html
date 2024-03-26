@@ -4,8 +4,6 @@
     <meta charset="utf-8">
     <title>User Home</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -19,51 +17,288 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4/css/bootstrap.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="style.css" rel="stylesheet">
+    <style>
+        /* Place your custom styles here */
+
+        /********** User Home CSS **********/
+        :root {
+            --primary: #072e72;
+            --secondary: #FF6922;
+            --light: #a6a4b4fc;
+            --dark: #0E2E50;
+        }
+
+        .back-to-top {
+            position: fixed;
+            display: none;
+            right: 45px;
+            bottom: 45px;
+            z-index: 99;
+        }
+
+
+/*** Button ***/
+.btn {
+    transition: .5s;
+}
+
+.btn.btn-primary,
+.btn.btn-secondary {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #072e72;
+    border-color: #47b2e4;
+}
+
+.btn-square {
+    width: 38px;
+    height: 38px;
+}
+
+.btn-sm-square {
+    width: 32px;
+    height: 32px;
+}
+
+.btn-lg-square {
+    width: 48px;
+    height: 48px;
+}
+
+.btn-square,
+.btn-sm-square,
+.btn-lg-square {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+    border-radius: 50px;
+}
+
+/*** Header ***/
+#hero {
+    width: 100%;
+    height: 80vh;
+    background: #072e72;
+  }
+
+  #hero .container {
+    padding-top: 72px;
+  }
+
+  #hero h1 {
+    margin: 0 0 10px 0;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56px;
+    color: #fff;
+  }
+
+  #hero h2 {
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 50px;
+    font-size: 24px;
+  }
+
+  #hero .btn-get-started {
+    font-family: "Jost", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 10px 28px 11px 28px;
+    border-radius: 50px;
+    transition: 0.5s;
+    margin: 10px 0 0 0;
+    color: #fff;
+    background: #47b2e4;
+  }
+
+  #hero .btn-get-started:hover {
+    background: #209dd8;
+  }
+
+
+  #hero .animated {
+    animation: up-down 2s ease-in-out infinite alternate-reverse both;
+  }
+
+  @media (max-width: 991px) {
+    #hero {
+      height: 100vh;
+      text-align: center;
+    }
+
+    #hero .animated {
+      animation: none;
+    }
+
+    #hero .hero-img {
+      text-align: center;
+    }
+
+    #hero .hero-img img {
+      width: 50%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    #hero h1 {
+      font-size: 28px;
+      line-height: 36px;
+    }
+
+    #hero h2 {
+      font-size: 18px;
+      line-height: 24px;
+      margin-bottom: 30px;
+    }
+
+    #hero .hero-img img {
+      width: 70%;
+    }
+  }
+
+  @media (max-width: 575px) {
+    #hero .hero-img img {
+      width: 80%;
+    }
+
+    #hero .btn-get-started {
+      font-size: 16px;
+      padding: 10px 24px 11px 24px;
+    }
+  }
+
+  @keyframes up-down {
+    0% {
+      transform: translateY(10px);
+    }
+
+    100% {
+      transform: translateY(-10px);
+    }
+  }
+
+
+/*** Icon ***/
+.icon {
+    padding: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF !important;
+    border-radius: 50px;
+    border: 1px dashed var(--primary) !important;
+}
+
+
+/*** About ***/
+.about-img img {
+    position: relative;
+    z-index: 2;
+}
+
+.about-img::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: -50%;
+    width: 100%;
+    height: 100%;
+    background: var(--primary);
+    transform: skew(20deg);
+    z-index: 1;
+}
+
+/*** Testimonial ***/
+.home-testimonial{background-color: #072e72;height: 380px}.home-testimonial-bottom{background-color: #f8f8f8;transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;margin-top: 20px;margin-bottom: 0px;position: relative;height: 130px;top: 190px}.home-testimonial h3{color: var(--orange);font-size: 14px;font-weight: 500;text-transform: uppercase}.home-testimonial h1{color: white;font-size: 40px;font-weight: 700}.testimonial-inner{position: relative;top: -174px}.testimonial-pos{position: relative;top: 24px}.testimonial-inner .tour-desc{border-radius: 5px;padding: 40px}.color-grey-3{font-family: "Montserrat", Sans-serif;font-size: 14px;color: #6c83a2}.testimonial-inner img.tm-people{width: 60px;height: 60px;-webkit-border-radius: 50%;border-radius: 50%;-o-object-fit: cover;object-fit: cover;max-width: none}.link-name{font-family: "Montserrat", Sans-serif;font-size: 14px;color: #6c83a2}.link-position{font-family: "Montserrat", Sans-serif;font-size: 12px;color: #6c83a2}
+
+/*** Footer ***/
+.footer .btn.btn-social {
+    margin-right: 5px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light);
+    border: 1px solid rgba(255, 255, 255, 0.918);
+    border-radius: 35px;
+    transition: .3s;
+}
+
+.footer .btn.btn-social:hover {
+    color: var(--light);
+    border-color: var(--light);
+}
+
+.footer .btn.btn-link {
+    display: block;
+    margin-bottom: 5px;
+    padding: 0;
+    text-align: left;
+    font-size: 15px;
+    font-weight: normal;
+    text-transform: capitalize;
+    transition: .3s;
+}
+
+.footer .btn.btn-link::before {
+    position: relative;
+    content: "\f105";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-right: 10px;
+}
+
+.footer .btn.btn-link:hover {
+    letter-spacing: 1px;
+    box-shadow: none;
+}
+
+.footer .form-control {
+    border-color: rgba(255, 255, 255, 0.752);
+}
+
+.footer .copyright {
+    padding: 25px 0;
+    font-size: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.653);
+}
+
+.footer .copyright a {
+    text-align: center;
+    color: var(--light);
+}
+    </style>
 </head>
 
 <body>
-        {% block content %}
     <div class="container-xxl bg-white p-0">
-        <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-        </div>
-        <!-- Spinner End -->
-
-
-        <!-- Navbar Start -->
-
-        <!-- Header Start -->
-        <div class="container-fluid header bg-white p-0">
-            <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
-                <div class="col-md-6 p-5 mt-lg-5">
-                    <h1 class="display-5 animated fadeIn mb-4">Let's Find Your Dream Home With Propify. </h1>
-                    <p class="animated fadeIn mb-4 pb-2">Empowering your real estate journey : Buy, Sell, Rent & Finance with Ease on our comprehensive real estate marketplace.</p>
-                    <a href="" class="btn btn-primary py-3 px-5 me-3 animated fadeIn">Stay Connected</a>
-                </div>
-                <div class="col-md-6 animated fadeIn">
-                    <div class="owl-carousel header-carousel">
-                        <div class="owl-carousel-item">
-                            <img class="img-fluid" src="img/carousel-1.jpg" alt="">
+        <section id="hero" class="d-flex align-items-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+                        <h1>Let's Find Your Dream Home With Propify!</h1>
+                        <h2>Empowering your real estate journey : Buy, Sell, Rent & Finance with Ease on our comprehensive real estate marketplace.</h2>
+                        <div class="d-flex justify-content-center justify-content-lg-start">
+                            <a href="#about" class="btn-get-started scrollto">Stay Connected</a>
                         </div>
-                        <div class="owl-carousel-item">
-                            <img class="img-fluid" src="img/carousel-2.jpg" alt="">
-                        </div>
+                    </div>
+                    <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+                        <img src="https://raw.githubusercontent.com/NishatTasnim01/Science-Bee/e43fd4b78aa69870569b77d4c3f84b7482a57977/User_Home.png" class="img-fluid animated" alt="">
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+        <!-- Header End -->
 
         <!-- About Start -->
         <div class="container-xxl py-5">
@@ -71,7 +306,7 @@
                 <div class="row g-5 align-items-center">
                     <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                         <div class="about-img position-relative overflow-hidden p-5 pe-0">
-                            <img class="img-fluid w-100" src="img/about.jpg">
+                            <img class="img-fluid w-100" src="https://raw.githubusercontent.com/NishatTasnim01/Science-Bee/fe37e86d3b9b682bfd755d0b756346b562023f66/Pool.jpg" alt="">
                         </div>
                     </div>
                     <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
@@ -80,61 +315,60 @@
                         <p> 🔵 Advanced Search Functionality </p>
                         <p> 🔵 Comprehensive Property Listings </p>
                         <p> 🔵 Personalized Recommendations </p>
-                        <a class="btn btn-primary py-3 px-5 mt-3" href="">Read More</a>
+                        <a class="btn btn-primary py-3 px-5 mt-3" href="FAQ.html">Any Questions?</a>
                     </div>
                 </div>
             </div>
         </div>
         <!-- About End -->
 
-
         <!-- Testimonial Start -->
-        <div class="container-xxl py-5">
-            <div class="container">
-                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                    <h1 class="mb-3">Our Clients Say!</h1>
-                </div>
-                <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="testimonial-item bg-light rounded p-3">
-                        <div class="bg-white border rounded p-4">
-                            <p>I couldn't be happier with my experience using Propify to find my dream home. The platform is incredibly user-friendly, and the wide range of properties available made it easy to narrow down my search. The support team was also fantastic, providing prompt assistance whenever I needed it. Highly recommended!</p>
-                            <div class="d-flex align-items-center">
-                                <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-1.jpg" style="width: 45px; height: 45px;">
-                                <div class="ps-3">
-                                    <h6 class="fw-bold mb-1">Nishat</h6>
-                                    <small>Student</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-item bg-light rounded p-3">
-                        <div class="bg-white border rounded p-4">
-                            <p>Propify exceeded all my expectations when it came to finding the perfect rental property. The website's intuitive interface made the search process a breeze, and the detailed property listings provided all the information I needed to make an informed decision. I'm grateful to the Propify team for their professionalism and dedication to helping me find the right place.</p>
-                            <div class="d-flex align-items-center">
-                                <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-2.jpg" style="width: 45px; height: 45px;">
-                                <div class="ps-3">
-                                    <h6 class="fw-bold mb-1">Nazneen</h6>
-                                    <small>Student</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-item bg-light rounded p-3">
-                        <div class="bg-white border rounded p-4">
-                            <p>As a first-time homebuyer, I was a bit overwhelmed by the prospect of navigating the real estate market. Thankfully, I found Propify, and it made the entire process so much easier. From browsing listings to connecting with agents, everything was seamless. I'm now happily settled into my new home, and I have Propify to thank for it!</p>
-                            <div class="d-flex align-items-center">
-                                <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-3.jpg" style="width: 45px; height: 45px;">
-                                <div class="ps-3">
-                                    <h6 class="fw-bold mb-1">Samiul</h6>
-                                    <small>Student</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<section class="home-testimonial">
+    <div class="container-fluid">
+        <div class="row d-flex justify-content-center testimonial-pos">
+            <div class="col-md-12 d-flex justify-content-center">
+                <h1>Our Clients Say :</h1>
             </div>
         </div>
-        <!-- Testimonial End -->
+        <section class="home-testimonial-bottom">
+            <div class="container testimonial-inner">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-4 style-3">
+                        <div class="tour-item ">
+                            <div class="tour-desc bg-white">
+                                <div class="tour-text color-grey-3 text-center">&ldquo;I found my dream home through Propify. The platform made it easy to browse through numerous listings and connect with sellers. Highly recommended!&rdquo;</div>
+                                <div class="d-flex justify-content-center pt-2 pb-2"><img class="tm-people" img src="https://raw.githubusercontent.com/NishatTasnim01/Science-Bee/e43fd4b78aa69870569b77d4c3f84b7482a57977/woman.png" alt=""></div>
+                                <div class="link-name d-flex justify-content-center">Nishat</div>
+                                <div class="link-position d-flex justify-content-center">Client</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 style-3">
+                        <div class="tour-item ">
+                            <div class="tour-desc bg-white">
+                                <div class="tour-text color-grey-3 text-center">&ldquo;Propify helped me find the perfect rental property. The platform is user-friendly and offers a wide range of options. Great experience overall!&rdquo;</div>
+                                <div class="d-flex justify-content-center pt-2 pb-2"><img class="tm-people" img src="https://raw.githubusercontent.com/NishatTasnim01/Science-Bee/e43fd4b78aa69870569b77d4c3f84b7482a57977/woman.png" alt=""></div>
+                                <div class="link-name d-flex justify-content-center">Nazneen</div>
+                                <div class="link-position d-flex justify-content-center">Client</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 style-3">
+                        <div class="tour-item ">
+                            <div class="tour-desc bg-white">
+                                <div class="tour-text color-grey-3 text-center">&ldquo;I sold my property through Propify, and the process was smooth and efficient. The support team was helpful and responsive. Highly recommend using their services.&rdquo;</div>
+                                <div class="d-flex justify-content-center pt-2 pb-2"><img class="tm-people" img src="https://raw.githubusercontent.com/NishatTasnim01/Science-Bee/e43fd4b78aa69870569b77d4c3f84b7482a57977/man.png" alt=""></div>
+                                <div class="link-name d-flex justify-content-center">Samiul</div>
+                                <div class="link-position d-flex justify-content-center">Client</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </div>
+</section>
+<!-- Testimonial End -->
+
 
 
         <!-- Footer Start -->
@@ -143,9 +377,9 @@
                 <div class="row g-5">
                     <div class="col-lg-3 col-md-6">
                         <h5 class="text-white mb-4">Get In Touch</h5>
-                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>74/A, Green Road, Dhaka 1205</p>
-                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+8801959686288</p>
-                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>www.propify.gov.bd</p>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i> 74/A, Green Road, Dhaka 1205</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i> +8801959686288</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i> www.propify.gov.bd</p>
                         <div class="d-flex pt-2">
                             <a class="btn btn-outline-light btn-social" href="#"><span class="bi bi-twitter"></span></a>
                             <a class="btn btn-outline-light btn-social" href="#"><span class="bi bi-facebook"></span></a>
@@ -165,41 +399,23 @@
                         <h5 class="text-white mb-4">Photo Gallery</h5>
                         <div class="row g-2 pt-2">
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="img/property-1.jpg" alt="">
+                                <img class="img-fluid rounded bg-light p-1" src="https://raw.githubusercontent.com/NishatTasnim01/Science-Bee/626209644222481568ddc156faee7ff6ffef7016/Property1.jpg" alt="">
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="img/property-2.jpg" alt="">
+                                <img class="img-fluid rounded bg-light p-1" src="https://raw.githubusercontent.com/NishatTasnim01/Science-Bee/626209644222481568ddc156faee7ff6ffef7016/Property2.jpg" alt="">
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="img/property-3.jpg" alt="">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="img/property-4.jpg" alt="">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="img/property-5.jpg" alt="">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="img/property-6.jpg" alt="">
+                                <img class="img-fluid rounded bg-light p-1" src="https://raw.githubusercontent.com/NishatTasnim01/Science-Bee/626209644222481568ddc156faee7ff6ffef7016/Property3.jpg" alt="">
                             </div>
                         </div>
                     </div>
+                </div>
             </div>
             <div class="container">
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; Propify, All Right Reserved.
-
-							Designed By CSE 310 Team 02.
-                        </div>
-                        <div class="col-md-6 text-center text-md-end">
-                            <div class="footer-menu">
-                                <a href="">Home</a>
-                                <a href="">Cookies</a>
-                                <a href="">Help</a>
-                                <a href="">FQAs</a>
-                            </div>
+                            &copy; Propify, All Right Reserved. Designed By CSE 310 Team 02.
                         </div>
                     </div>
                 </div>
@@ -207,24 +423,69 @@
         </div>
         <!-- Footer End -->
 
-
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
          {% endblock %}
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+       <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
 
-<!-- END -->
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
-    </div>
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <!-- Wow JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+
+    <!-- Your custom script -->
+    <script>
+        $(document).ready(function() {
+            // Initialize wow.js for animations
+            new WOW().init();
+
+            // Initialize owl carousel for testimonials
+            $('.testimonial-carousel').owlCarousel({
+                loop: true,
+                margin: 30,
+                nav: false,
+                dots: true,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    768: {
+                        items: 2
+                    }
+                }
+            });
+
+            // Add smooth scrolling to Back to Top button
+            $('.back-to-top').click(function() {
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 'slow');
+                return false;
+            });
+        });
+    </script>
 </body>
+
 </html>
