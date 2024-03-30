@@ -38,19 +38,20 @@
             <center> <h2 class="pb-3">Log In Propify As User</h2> </center>
             <center><h3 class="pb-3">Join the Real Estate Community.</h3></center>
             <div class="form-style">
-                <form>
+                <form method = 'post'>
+                    {% csrf_token %}
                     <div class="form-group pb-3">
-                        <input type="email" placeholder="Enter Email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input type="text" name="username" placeholder="Enter username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                     </div>
                     <div class="form-group pb-3">
-                        <input type="password" placeholder="Enter Password" class="form-control" id="exampleInputPassword1">
+                        <input type="password" name="password" placeholder="Enter Password" class="form-control" id="exampleInputPassword1">
                     </div>
                     <div class="d-flex align-items-center justify-content-between">
                         <div class="d-flex align-items-center"><input name="" type="checkbox" value="" /> <span class="pl-2 font-weight-bold">I Accept Terms & Conditions.</span></div>
                         <div><a href="#">Forget Password?</a></div>
                     </div>
                     <div class="pb-2">
-                         <button type="submit" class="btn btn-dark w-100 font-weight-bold mt-2"> <a href="{% url 'user_home' %}" class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 ">Log In Propify</button></a>
+                         <button type="submit" class="btn btn-dark w-100 font-weight-bold mt-2"> Log In Propify</button>
                     </div>
                 </form>
                 <div class="sideline">
@@ -59,7 +60,7 @@
                     <button type="submit" class="btn btn-primary w-100 font-weight-bold mt-2"><i class="fa fa-facebook" aria-hidden="true"></i> Log In With Facebook</button>
                 </div>
                 <div class="pt-4 text-center">
-                    Don't Have an Account? <a href="User_Signup.html">Sign Up</a>
+                    Don't Have an Account? <a href="{% url 'user_sign' %}">Sign Up</a>
                 </div>
             </div>
         </div>
