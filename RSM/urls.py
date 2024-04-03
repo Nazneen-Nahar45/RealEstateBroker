@@ -16,6 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls.static import static
+from django.conf import settings
 from realestate import views as r_view
 
 urlpatterns = [
@@ -39,5 +41,10 @@ urlpatterns = [
     path('profile/' ,r_view.profile, name='profile'),
     path('agent/' ,r_view.agent, name='agent'),
     path('faq/',r_view.faq,name='faq'),
+    path('addsell/',r_view.add_sell, name= 'add_sell'),
 
 ]
+
+
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
