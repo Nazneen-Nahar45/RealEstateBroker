@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login as auth_login
 from django.contrib import messages
 from django.contrib.sessions.models import  Session
+from .forms import *
 # Create your views here.
 
 def buy(request):
@@ -78,6 +79,21 @@ def user_home(request):
 
 def user_sell(request):
     return render(request,template_name='Customer_Sell.html')
+
+
+
+def add_sell(request):
+    form = Sellform()
+    if request.method == 'POST':
+        form = Sellform(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('agent')
+    context ={
+        'form':form,
+    }
+    return render(request,template_name='sell.html', context=context)
+
 
 
 def agent_sign(request):
