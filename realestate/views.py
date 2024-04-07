@@ -1,12 +1,14 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate,login as auth_login
+from django.contrib.auth import authenticate,login as auth_login,logout
 from django.contrib import messages
 from django.contrib.sessions.models import  Session
 from .forms import *
+from .models import Agent
 # Create your views here.
 
 def buy(request):
+
     return render(request,template_name='buy_features.html')
 
 def rent(request):
@@ -71,8 +73,12 @@ def user_login(request):
             auth_login(request,user)
             messages.success(request,'Successfulyy Logged In!')
             return redirect('user_home')
-
     return render(request,template_name='User_Login.html')
+
+def logout_user(request):
+     logout(request)
+     messages.success(request,'Youre logged out!')
+     return redirect('user_login')
 
 def user_home(request):
     return render(request,template_name='User_Home.html')
@@ -97,9 +103,58 @@ def add_sell(request):
 
 
 def agent_sign(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        company_name = request.POST.get('company_name')
+        password = request.POST.get('password')
+
+        if name and email and company_name and password :
+            new_agent = Agent(
+                name = name,
+                email = email,
+                company_name= company_name,
+                password = password
+            )
+            new_agent.save()
+
+            request.session['agent_name'] =name
+            request.session['agent_email'] = email
+            request.session['agent_company_name'] = company_name
+            request.session['agent_password'] = password
+
+            return redirect('agent_login')
+        else :
+            messages.error(request,'Please fillup the form!')
+
+            return redirect('agent_sign')
+
     return render(request,template_name='Admin_Signup.html')
 
 def agent_login(request):
+    if  request.method == 'POST':
+        name = request.POST.get('name')
+        password = request.POST.get('password')
+
+        if Agent.objects.filter(name = name).exists():
+            agent= Agent.objects.get(name= name)
+
+            if agent.password==password :
+               request.session['agent_name'] = agent.name
+               request.session['agent_email'] = agent.email
+               request.session['agent_company_name'] = agent.company_name
+               request.session['agent_password'] = agent.password
+
+               return redirect("agent_home")
+
+            else :
+                messages.error(request,'please fillup the form')
+
+                return redirect('agent_login')
+
+        else :
+            messages.error(request,'invalid username!')
+
     return render(request,template_name='Admin_Login.html')
 
 def agent_home(request):

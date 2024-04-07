@@ -42,6 +42,7 @@ urlpatterns = [
     path('agent/' ,r_view.agent, name='agent'),
     path('faq/',r_view.faq,name='faq'),
     path('addsell/',r_view.add_sell, name= 'add_sell'),
+    path('logout_user/',r_view.logout_user, name= 'logout_user'),
 
 ]
 
