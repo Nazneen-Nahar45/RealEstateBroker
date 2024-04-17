@@ -5,11 +5,16 @@ from django.contrib import messages
 from django.contrib.sessions.models import  Session
 from .forms import *
 from .models import Agent
+from .models import Sell
 # Create your views here.
 
 def buy(request):
+    buy_list=Sell.objects.all()
+    context= {
+        'buy_list': buy_list,
+    }
 
-    return render(request,template_name='buy_features.html')
+    return render(request,template_name='buy_features.html', context=context )
 
 def rent(request):
     return render(request,template_name='rent_features.html')
@@ -89,9 +94,9 @@ def user_sell(request):
 
 
 def add_sell(request):
-    form = Sellform()
+    form = SellForm()
     if request.method == 'POST':
-        form = Sellform(request.POST, request.FILES)
+        form = SellForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('agent')
@@ -165,3 +170,26 @@ def agent_sell(request):
 
 def faq(request):
     return render(request,template_name='FAQ.html')
+
+
+def nav(request):
+    try:
+        user = User.objects.get(user=request.user)
+    except Exception as e:
+        user = None
+        print('Exception : ', e)
+    
+    context = {'user': user,
+
+
+               
+        }
+
+    return render(request,template_name='nav.html', ) 
+
+
+
+def username_show(request):
+    
+    
+    return render(request, 'navbar.html', {'username': username})
