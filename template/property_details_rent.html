@@ -11,14 +11,14 @@
 <div class="row justify-content-center">
   <div class="row-lg-6">
     <div class="card mb-3">
-      {% if buy %}
+      {% if rent %}
       <div class="card mx-auto" style="max-width: 50rem">
         <div
           class="card-image-container"
           style="height: 445.58px; width: 782px; overflow: hidden"
         >
           <img
-            src="{{buy.image.url}}"
+            src="{{ rent.image.url }}"
             class="card-img-top"
             style="object-fit: cover; height: 100%; width: 100%"
             alt="..."
@@ -26,14 +26,14 @@
         </div>
         <div class="card-body">
           <div class="d-flex justify-content-between align-items-center mb-2">
-            <h5 class="card-title mb-0">{{ buy.house_code }}</h5>
-            <p class="card-text mb-0">BDT {{ buy.price }}/=</p>
+            <h5 class="card-title mb-0">{{ rent.house_code }}</h5>
+            <p class="card-text mb-0">BDT {{ rent.price }}/= Per Month</p>
           </div>
-          <h6 class="card-subtitle mb-2 text-muted">{{ buy.location }}</h6>
-          <p class="card-text">{{buy.description }}</p>
+          <h6 class="card-subtitle mb-2 text-muted">{{ rent.location }}</h6>
+          <p class="card-text">{{rent.description }}</p>
         </div>
         <div class="card-footer bg-transparent border-white">
-          <a href="{% url 'confirm' %}" class="btn btn-primary" style="width: 100px">Buy</a>
+          <a href="{% url 'confirm' %}" class="btn btn-primary" style="width: 100px">Rent</a>
         </div>
       </div>
 

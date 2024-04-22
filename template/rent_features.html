@@ -1,104 +1,101 @@
 {% extends "navbar.html" %}
 
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rent-Features</title>
+    <title>Buy-Features</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 </head>
 
 <body>
-   {% block content %}
+    {% block content %}
 
-
-    <div style="padding: 30px;">
-        <h1>Rent Your Property</h1>
+    <div style="padding: 20px;">
+        <h1>Buy Your Property</h1>
     </div>
 
-    <div class="container mt-3">
+    <div class="container mt-1">
         <form class="d-flex" id="findForm">
             <select class="form-select me-2" aria-label="Budget" id="budgetSelect">
                 <option value="">Select Budget</option>
-                <option value="20000">20000</option>
-                <option value="25000">25000</option>
-                <option value="35000">35000</option>
-                <option value="40000">40000</option>
-               
+                <option value="200000">2,00,000</option>
+                <option value="250000">2,50,000</option>
+                <option value="350000">3,50,000</option>
+                <option value="400000">4,00,000</option>
+
             </select>
             <select class="form-select me-2" aria-label="Places" id="placesSelect">
                 <option value="">Select Place</option>
                 <option value="gulshan">Gulshan</option>
                 <option value="dhanmondi">Dhanmondi</option>
                 <option value="mirpur">Mirpur</option>
-               
+
             </select>
             <button class="btn btn-outline-primary" type="submit">Find</button>
         </form>
     </div>
 
-    <div class="row row-cols-1 row-cols-md-3 g-4" id="cardContainer" style="padding-top: 30px; padding-left: 30px; padding-right: 30px; padding-bottom: 30px;">
-        <div class="col">
-            <div class="card" id="gulshan_1" data-budget="35000" data-place="gulshan">
-                <img src="https://i.ibb.co/DY6C2SL/53-7.jpg" class="card-img-top" alt="...">
+    <div style="padding: 10px;">
+        <h> </h>
+    </div>
+
+    <style>
+        .card-container {
+            display: flex;
+            justify-content: flex-start;
+            /* Align items to the start of the flex container */
+            flex-wrap: wrap;
+        }
+    </style>
+
+
+
+    <div class="container-fluid">
+
+        <div class="card-container ">
+            {% for b in rent_list %}
+            <div class="card mx-2 mb-3" style="max-width: 22rem;">
+                <div class="card-image-container" style="height: 200px; width: 351px; overflow: hidden;">
+                    <img src="{{ b.image.url }}" class="card-img-top img-fluid"
+                        style="object-fit: cover; height: 100%; width: 100%;" alt="...">
+                </div>
                 <div class="card-body">
-                    <h5 class="card-title">House Code: R#001</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <button type="button" class="btn btn-outline-dark"><a href="{% url 'confirm' %}" class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 ">Details</a></button>
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h5 class="card-title mb-0">{{ b.house_code }}</h5>
+                        <p class="card-text mb-0">BDT {{ b.price }}/= Per Month</p>
+                    </div>
+
+                    <h6 class="card-subtitle mb-2 text-muted">{{ b.location }}</h6>
+                    <p class="card-text" style="overflow: hidden; text-overflow: ellipsis; max-height: 100px;">
+                        {{b.description }}</p>
+                </div>
+                <div class="card-footer bg-transparent border-white">
+                    <a href="{% url 'property_details_rent' b.id %}" class="btn btn-primary">Details</a>
                 </div>
             </div>
-        </div>
-        <!-- <div class="col">
-            <div class="card" id="gulshan_1" data-budget="40000" data-place="gulshan">
-                <img src="Images/house/whole house.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">House Code: R#002</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <button type="button" class="btn btn-outline-success">Details</button>
-                </div>
-            </div>
-        </div> -->
-        <div class="col">
-            <div class="card" id="dhanmondi" data-budget="35000" data-place="dhanmondi">
-                <img src="https://i.ibb.co/gVvXhVQ/Whats-App-Image-2024-03-14-at-21-29-14.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">House Code: R#003</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <button type="button" class="btn btn-outline-dark"><a href="{% url 'renthome2' %}" class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 ">Details</a></button>
-                </div>
-            </div>
-        </div>
-        <!-- <div class="col">
-            <div class="card" id="dhanmondi" data-budget="20000" data-place="dhanmondi">
-                <img src="Images/house/whole house.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">House Code: R#004</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <button type="button" class="btn btn-outline-success">Details</button>
-                </div>
-            </div>
-        </div> -->
-        <div class="col">
-            <div class="card" id="mirpur" data-budget="25000" data-place="mirpur">
-                <img src="https://i.ibb.co/fd2CN5B/Whats-App-Image-2024-03-14-at-21-27-04.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">House Code: R#005</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <button type="button" class="btn btn-outline-dark">Details</button>
-                </div>
-            </div>
+
+
+
+   
+
+
+
+            {% endfor %}
         </div>
 
     </div>
+
     {% endblock %}
+
     <script>
-        document.getElementById('searchForm').addEventListener('submit', function(e) {
+        document.getElementById('searchForm').addEventListener('submit', function (e) {
             e.preventDefault();
             const searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
             const cards = document.querySelectorAll('.card');
-            cards.forEach(function(card) {
+            cards.forEach(function (card) {
                 const cardId = card.getAttribute('id');
                 if (cardId && cardId.toLowerCase().includes(searchTerm)) {
                     card.style.display = 'block';
@@ -108,12 +105,12 @@
             });
         });
 
-        document.getElementById('findForm').addEventListener('submit', function(e) {
+        document.getElementById('findForm').addEventListener('submit', function (e) {
             e.preventDefault();
             const budget = document.getElementById('budgetSelect').value;
             const place = document.getElementById('placesSelect').value;
             const cards = document.querySelectorAll('.card');
-            cards.forEach(function(card) {
+            cards.forEach(function (card) {
                 const cardBudget = card.getAttribute('data-budget');
                 const cardPlace = card.getAttribute('data-place');
                 if ((budget === "" || cardBudget === budget) && (place === "" || cardPlace === place)) {
@@ -125,7 +122,10 @@
         });
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

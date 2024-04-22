@@ -52,70 +52,86 @@
 </head>
 
 <body>
+    
+    
 
     {% block content %}
 
+
+    <style>
+        .container {
+    	 display: flex;
+        justify-content: center;
+  }
+        .accordion {
+          max-width: 800px; /* Set the maximum width to 400px or adjust as needed */
+          /* You can also add other styles as needed */
+        }
+      </style>
+
 <div class="container">
-    <div class="row">
-        <div class="faq-wrapper">
-            <div class="header">
-                <h1>Frequently Asked Questions</h1>
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                What types of properties do Propify list?
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                We list a wide range of properties including residential homes, apartments, condos, townhouses, commercial buildings, land, and more. Whether you're looking for a cozy family home, a trendy downtown apartment, or a spacious commercial space for your business, we've got you covered.
             </div>
-            <div class="faq-inner">
-                <div class="faq-item">
-                    <h3>
-                        What types of properties do Propify list?
-                        <span class="faq-plus">&plus;</span>
-                    </h3>
-                    <div class="faq-body">
-                        We list a wide range of properties including residential homes, apartments, condos, townhouses, commercial buildings, land, and more. Whether you're looking for a cozy family home, a trendy downtown apartment, or a spacious commercial space for your business, we've got you covered.
-                    </div>
-                </div>
-                <hr>
-                <div class="faq-item">
-                    <h3>
-                        How can I search for properties on Propify website?
-                        <span class="faq-plus">&plus;</span>
-                    </h3>
-                    <div class="faq-body">
-                        You can easily search for properties by using our search filters, which allow you to specify criteria such as location, property type, price range, number of bedrooms and bathrooms, and more. You can also use our advanced search options for a more customized search experience.
-                    </div>
-                </div>
-                <hr>
-                <div class="faq-item">
-                    <h3>
-                        Are there any fees or costs associated with using Propify website?
-                        <span class="faq-plus">&plus;</span>
-                    </h3>
-                    <div class="faq-body">
-                        No, there are no fees or costs for users to search for properties on our website. However, there may be fees associated with specific services such as listing a property for sale or rent, which vary depending on the package selected.
-                    </div>
-                </div>
-                <hr>
-                <div class="faq-item">
-                    <h3>
-                        How can I schedule a viewing of a property?
-                        <span class="faq-plus">&plus;</span>
-                    </h3>
-                    <div class="faq-body">
-                        To schedule a viewing of a property, simply contact the real estate agent or property owner directly through the contact information provided on the property listing. They will be happy to arrange a viewing at a convenient time for you.
-                    </div>
-                </div>
-                <hr>
-                <div class="faq-item">
-                    <h3>
-                        Do Propify offer assistance with financing or mortgage options?
-                        <span class="faq-plus">&plus;</span>
-                    </h3>
-                    <div class="faq-body">
-                        While we do not directly offer financing or mortgage services, we can connect you with trusted partners and lenders who can assist you with financing options for purchasing a property. Simply reach out to us, and we'll be happy to provide you with recommendations.
-                    </div>
-                    <div class="pt-4 text-center">
-                        Still Have a Question? <a href="www.propify.gov.bd">Contact Us</a>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                How can I search for properties on Propify website?
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                You can easily search for properties by using our search filters, which allow you to specify criteria such as location, property type, price range, number of bedrooms and bathrooms, and more. You can also use our advanced search options for a more customized search experience.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Are there any fees or costs associated with using Propify website?
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                No, there are no fees or costs for users to search for properties on our website. However, there may be fees associated with specific services such as listing a property for sale or rent, which vary depending on the package selected.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFour">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                How can I schedule a viewing of a property?
+              </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                To schedule a viewing of a property, simply contact the real estate agent or property owner directly through the contact information provided on the property listing. They will be happy to arrange a viewing at a convenient time for you.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFive">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                Do Propify offer assistance with financing or mortgage options?
+              </button>
+            </h2>
+            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                While we do not directly offer financing or mortgage services, we can connect you with trusted partners and lenders who can assist you with financing options for purchasing a property. Simply reach out to us, and we'll be happy to provide you with recommendations.
+              </div>
+            </div>
+          </div>
+      </div>
     </div>
 </div>
    {% endblock %}
