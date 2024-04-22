@@ -42,9 +42,10 @@ urlpatterns = [
     path('agent/' ,r_view.agent, name='agent'),
     path('faq/',r_view.faq,name='faq'),
     path('addsell/',r_view.add_sell, name= 'add_sell'),
+    path('addrent/',r_view.add_rent, name= 'add_rent'),
     path('logout_user/',r_view.logout_user, name= 'logout_user'),
-    path('/<str:id>',r_view.property_details, name= 'property_details'),
-
+    path('buy/<str:id>',r_view.property_details, name= 'property_details'),
+    path('rent/<str:id>',r_view.property_details_rent, name= 'property_details_rent'),
 ]
 
 

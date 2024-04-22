@@ -6,6 +6,8 @@ from django.contrib.sessions.models import  Session
 from .forms import *
 from .models import Agent
 from .models import Sell
+from .models import Rent
+
 # Create your views here.
 
 def buy(request):
@@ -17,7 +19,14 @@ def buy(request):
     return render(request,template_name='buy_features.html', context=context )
 
 def rent(request):
-    return render(request,template_name='rent_features.html')
+    rent_list=Rent.objects.all()
+    context= {
+        'rent_list': rent_list,
+    }
+
+    return render(request,template_name='rent_features.html', context=context )
+
+
 
 def property_details(request, id):
     buy = Sell.objects.get(pk = id)
@@ -25,6 +34,14 @@ def property_details(request, id):
         'buy': buy,
     }
     return render(request,template_name='property_details.html',context=context)
+
+
+def property_details_rent(request, id):
+    rent = Rent.objects.get(pk = id)
+    context ={
+        'rent': rent,
+    }
+    return render(request,template_name='property_details_rent.html',context=context)
 
 def buyhome1(request):
     return render(request,template_name='b_feat_1.html')
@@ -106,12 +123,23 @@ def add_sell(request):
         form = SellForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('agent')
+            return redirect('agent_home')
     context ={
         'form':form,
     }
     return render(request,template_name='sell.html', context=context)
 
+def add_rent(request):
+    form = RentForm()
+    if request.method == 'POST':
+        form = RentForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('agent_home')
+    context ={
+        'form':form,
+    }
+    return render(request,template_name='rent.html', context=context)
 
 
 def agent_sign(request):

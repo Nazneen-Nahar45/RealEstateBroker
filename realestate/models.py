@@ -14,6 +14,8 @@ class Agent(models.Model):
         return self.name
 
 
+
+
 class Buy(models.Model):
     agent = models.ForeignKey(Agent, on_delete=models.CASCADE)
     house_code = models.CharField(max_length=20)
@@ -26,7 +28,6 @@ class Buy(models.Model):
 
 
 class Rent(models.Model):
-    agent = models.ForeignKey(Agent, on_delete=models.CASCADE)
     house_code = models.CharField(max_length=20)
     location = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=10, decimal_places=2)
@@ -34,6 +35,8 @@ class Rent(models.Model):
     area = models.DecimalField(max_digits=10, decimal_places=2)
     image= models.ImageField(upload_to='images/',blank=True, null=True, default='images/default.jpg')
 
+    def __str__(self):
+        return self.house_code 
 
 
 class Sell(models.Model):
