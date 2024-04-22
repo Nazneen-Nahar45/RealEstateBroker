@@ -43,6 +43,7 @@ urlpatterns = [
     path('faq/',r_view.faq,name='faq'),
     path('addsell/',r_view.add_sell, name= 'add_sell'),
     path('logout_user/',r_view.logout_user, name= 'logout_user'),
+    path('/<str:id>',r_view.property_details, name= 'property_details'),
 
 ]
 

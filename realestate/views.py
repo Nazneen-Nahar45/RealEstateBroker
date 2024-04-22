@@ -19,6 +19,13 @@ def buy(request):
 def rent(request):
     return render(request,template_name='rent_features.html')
 
+def property_details(request, id):
+    buy = Sell.objects.get(pk = id)
+    context ={
+        'buy': buy,
+    }
+    return render(request,template_name='property_details.html',context=context)
+
 def buyhome1(request):
     return render(request,template_name='b_feat_1.html')
 

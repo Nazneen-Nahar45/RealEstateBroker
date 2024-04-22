@@ -1,0 +1,45 @@
+{% extends "navbar.html" %} {% block content %}
+
+<style>
+  .card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add the drop shadow */
+  }
+</style>
+
+<div style="padding: 5px"></div>
+
+<div class="row justify-content-center">
+  <div class="row-lg-6">
+    <div class="card mb-3">
+      {% if buy %}
+      <div class="card mx-auto" style="max-width: 50rem">
+        <div
+          class="card-image-container"
+          style="height: 445.58px; width: 782px; overflow: hidden"
+        >
+          <img
+            src="{{buy.image.url}}"
+            class="card-img-top"
+            style="object-fit: cover; height: 100%; width: 100%"
+            alt="..."
+          />
+        </div>
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <h5 class="card-title mb-0">{{ buy.house_code }}</h5>
+            <p class="card-text mb-0">BDT {{ buy.price }}/=</p>
+          </div>
+          <h6 class="card-subtitle mb-2 text-muted">{{ buy.location }}</h6>
+          <p class="card-text">{{buy.description }}</p>
+        </div>
+        <div class="card-footer bg-transparent border-white">
+          <a href="#" class="btn btn-primary" style="width: 100px">Buy</a>
+        </div>
+      </div>
+
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}
