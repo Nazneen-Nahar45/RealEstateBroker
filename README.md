@@ -14,7 +14,7 @@ A responsive real estate website named `Propify`. You can enter as `Customer` & 
 <h2 align="left">⚙️ Run This Project :</h2>
 
 1. **Install `Python` & `Pycharm`.**
-2. **Create New Project in Pycharm & Make Sure that virtual environment is set.**
+2. **Create New Project in Pycharm & Make Sure that Virtual Environment is set.**
 3. **Clone This Project From Github:**
    
 ```sh
