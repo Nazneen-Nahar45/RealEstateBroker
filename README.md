@@ -1,5 +1,5 @@
 <!-- DO NOT COPY -->
-<h1 align="center" style="color: red;">Propify Real Estate Website <img src="https://media.giphy.com/media/thegangoffur-sweet-home-mudik-XbbIq4Czitk4W6djzS/giphy.gif" width="35"></h1>
+<h1 align="center" style="color: red;">Propify Real Estate Website <img src="https://media.giphy.com/media/Mc6lb54hdIE6SozMjS/giphy.gif" width="50" height="60" ></h1>
 
 A responsive real estate website named `Propify`. You can enter as `Customer` & `Agent`. Customer features are `Buy`, `Sell`, `Rent`, `FAQ's` & `Profile`. Customer can search, buy and rent their desired property. Agent features are `Add Sell`, `Add Rent` & Profile. Agents can add property to Sell and Rent that are updated to Customer UI later. 🏠
 
