@@ -47,7 +47,7 @@ python manage.py runserver
 python manage.py createsuperuser
 ```
 
-And you are good to go. 
+You can now proceed. Enjoy your visit on our website. ✅
 
 <h2 align="left">📸 Screenshots:</h2>
 
