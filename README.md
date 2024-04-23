@@ -8,8 +8,8 @@ A responsive real estate website named `Propify`. You can enter as `Customer` & 
 - Pycharm 2024.1
 - Python 3.12.3
 - Django 5.0.4
-- HTML 5
 - Bootstrap 5.3.3
+- HTML 5
  
 <h2 align="left">⚙️ Run This Project :</h2>
 
