@@ -35,7 +35,7 @@ pip install django
 ```sh
 python -m pip install Pillow
 ```
-7. **Run Server**
+7. **Run Server:**
 
 ```sh
 python manage.py runserver 
@@ -49,7 +49,7 @@ python manage.py createsuperuser
 
 And you are good to go. 
 
-### Screenshots
+### Screenshots:
 
 - **Enter As**
 
