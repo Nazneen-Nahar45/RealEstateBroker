@@ -14,8 +14,6 @@ class Agent(models.Model):
         return self.name
 
 
-
-
 class Buy(models.Model):
     agent = models.ForeignKey(Agent, on_delete=models.CASCADE)
     house_code = models.CharField(max_length=20)
@@ -24,7 +22,6 @@ class Buy(models.Model):
     description = models.TextField()
     area = models.DecimalField(max_digits=10, decimal_places=2)
     image= models.ImageField(upload_to='images/',blank=True, null=True, default='images/default.jpg')
-
 
 
 class Rent(models.Model):
