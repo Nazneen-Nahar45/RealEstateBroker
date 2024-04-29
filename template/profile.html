@@ -180,7 +180,7 @@
               </div>
               <div class="ms-3" style="margin-top: 130px;">
                 <h5>{{request.user.username}}</h5>
-                <!-- <p>Dhaka, Bangladesh</p> -->
+                <p>{{request.user.email}}</p>
               </div>
             </div>
             <div class="px-5 text-black" style="background-color: rgb(248, 249, 250);">
@@ -241,6 +241,29 @@
               </ul>
               
               <!-- Tab panes -->
+              <!-- {% for buyer in buyers %}
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                  </tr>
+                </thead>
+              <tbody>
+                <tr>
+                  
+                  <td>{{buyer.location}}</td>
+                  <td>{{buyer.phone}}</td>
+                  <td>{{buyer.city}}</td>
+                  <td>{{buyer.sell.price}}</td>
+                </tr>
+              </tbody>
+          
+            {% endfor %} -->
+
+            </table>
               <div class="tab-content">
                 <div class="tab-pane container fade" id="home">
                   <p>&nbsp;</p> 

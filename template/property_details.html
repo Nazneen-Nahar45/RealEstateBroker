@@ -33,7 +33,7 @@
           <p class="card-text">{{buy.description }}</p>
         </div>
         <div class="card-footer bg-transparent border-white">
-          <a href="{% url 'confirm' %}" class="btn btn-primary" style="width: 100px">Buy</a>
+          <a href="{% url 'buy_confirm' buy.id %}" class="btn btn-primary" style="width: 100px">Buy</a>
         </div>
       </div>
 

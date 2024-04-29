@@ -1,12 +1,11 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login as auth_login,logout
 from django.contrib import messages
 from django.contrib.sessions.models import  Session
 from .forms import *
-from .models import Agent
-from .models import Sell
-from .models import Rent
+from .models import *
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -16,7 +15,17 @@ def buy(request):
         'buy_list': buy_list,
     }
 
-    return render(request,template_name='buy_features.html', context=context )
+    return render(request,template_name='buy_features.html', context=context )\
+    
+
+
+def buy_list_agent(request):
+    buy_list=Sell.objects.all()
+    context= {
+        'buy_list': buy_list,
+    }
+
+    return render(request,template_name='agent.html', context=context )
 
 def rent(request):
     rent_list=Rent.objects.all()
@@ -34,6 +43,7 @@ def property_details(request, id):
         'buy': buy,
     }
     return render(request,template_name='property_details.html',context=context)
+
 
 
 def property_details_rent(request, id):
@@ -61,8 +71,17 @@ def confirm(request):
 def agent_p(request):
     return render(request,template_name='CompanyProfile.html')
 
+@login_required
 def profile(request):
-    return render(request,template_name='profile.html')
+    user = request.user
+    buyers=Buyer.objects.filter(user=user)
+    
+    context = {
+        'user':user,
+        'buyers':buyers,
+    }
+
+    return render(request,template_name='profile.html', context=context)
 
 def agent(request):
     return render(request,template_name='agent.html')
@@ -107,7 +126,7 @@ def user_login(request):
 def logout_user(request):
      logout(request)
      messages.success(request,'Youre logged out!')
-     return redirect('user_login')
+     return redirect('firstpage')
 
 def user_home(request):
     return render(request,template_name='User_Home.html')
@@ -140,6 +159,114 @@ def add_rent(request):
         'form':form,
     }
     return render(request,template_name='rent.html', context=context)
+
+
+# def buy_confirm(request,id):
+#     buy_list=Sell.objects.all()
+#     form = BuyerForm()
+#     if request.method == 'POST':
+#         form = BuyerForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('user_home')
+#     context ={
+#         'form':form,
+#         'buy_list': buy_list,
+#     }
+#     return render(request,template_name='buy_confirm.html', context=context)
+
+
+@login_required
+def buy_confirm(request,id):
+
+    sell = get_object_or_404(Sell, pk=id)
+
+    if request.method == 'POST':
+        # Extract form data from the POST request
+        user = request.POST.get('user')
+        phone = request.POST.get('phone')
+        location = request.POST.get('location')
+        city = request.POST.get('city')
+        nid = request.POST.get('nid')
+          
+
+        # Assuming you have authenticated users, you can access the current user like this
+        user = request.user
+
+        # Create a Buyer object and save it to the database
+        buyer = Buyer.objects.create(
+            user=user,
+            sell=sell,
+            nid=nid, 
+            phone=phone,
+            location=location,
+            city=city
+        )
+ 
+        buyer.save()
+        sell.delete()
+
+
+        return redirect('success') 
+
+    
+    return render(request, 'buy_confirm.html',{'sell':sell})
+
+
+@login_required
+def rent_confirm(request,id):
+
+    rent = get_object_or_404(Rent, pk=id)
+
+    if request.method == 'POST':
+        # Extract form data from the POST request
+        user = request.POST.get('user')
+        phone = request.POST.get('phone')
+        location = request.POST.get('location')
+        city = request.POST.get('city')
+          
+
+        # Assuming you have authenticated users, you can access the current user like this
+        user = request.user
+
+        # Create a Buyer object and save it to the database
+        renter = Renter.objects.create(
+            user=user,
+            rent=rent,
+            phone=phone,
+            location=location,
+            city=city
+        )
+ 
+        renter.save()
+        rent.delete()
+
+
+        return redirect('success') 
+
+    
+    return render(request, 'rent_confirm.html',{'rent':rent})
+
+
+def con_buy(request,id):
+     
+    sell = Sell.objects.get(pk = id)
+    if request.method == 'POST':
+
+        sell.delete()
+        return redirect('success')
+
+    
+    return render(request,template_name='conf.html')
+
+def success(request):
+      
+
+
+    return render(request,template_name='success.html')
+
+
+
 
 
 def agent_sign(request):
@@ -222,9 +349,42 @@ def nav(request):
 
     return render(request,template_name='nav.html', ) 
 
+def agent_nav(request):
+    try:
+        agent = Agent.objects.get(agent=request.agent.name)
+    except Exception as e:
+        agent = None
+        print('Exception : ', e)
+    
+    context = {'agent': agent,
+
+
+               
+        }
+
+    return render(request,template_name='navbar_agent.html', context=context ) 
+
+
 
 
 def username_show(request):
     
     
     return render(request, 'navbar.html', {'username': username})
+
+def username_show_agent(request):
+    
+    
+    return render(request, 'navbar_agent.html', {'name': name})
+
+def logout_agent(request):
+    logout(request)
+    messages.success(request, 'Youre logged out!')
+    return redirect('firstpage')
+
+def delete_buy(request,id):
+    delete_buy=Buy.objects.get(pk=id)
+    if request.method == 'POST':
+        delete_buy.delete()
+        return redirect('user_home')
+    return render(request,template_name='delete_buy.html',) 

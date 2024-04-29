@@ -13,6 +13,8 @@
 
   </head>
 <body>
+ 
+
    <nav class="navbar navbar-expand-lg" style=" padding-left: 30px; padding-right: 30px ;background-color: #14395B;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
@@ -44,18 +46,23 @@
                           </span>
                         </a>
                       </li>
-                      <!-- <li class="nav-item">
+                      <li class="nav-item">
                         <a class="nav-link" href="{% url 'agent' %}">
                           <span class="text-white">
                             Profile
                           </span>
                         </a>
-                      </li> -->
+                      </li>
                       
                 </ul>
                 <ul class="navbar-nav justify-content-end">
+                  
                   <li class="nav-item">
-                      <a href="#link" class="btn btn-danger" role="button">Logout</a>
+                    <a class="nav-link"> {{ request.agent.name }}</a>
+                  </li>
+                  
+                  <li class="nav-item">
+                      <a href="{% url 'logout_agent' %}" class="btn btn-danger" role="button">Logout</a>
                   </li>
               </ul>
 
@@ -70,6 +77,18 @@
         {% endblock %}
     </div>
 
+    <div class="container-as">
+      <footer class="py-3 my-0">
+        <ul class="nav justify-content-center border-bottom pb-7 mb-7">
+          <li class="nav-item"><a href="{% url 'agent_home' %}" class="nav-link px-2 text-muted">Home</a></li>
+          <li class="nav-item"><a href="{% url 'add_sell' %}" class="nav-link px-2 text-muted">Add Sell</a></li>
+          <li class="nav-item"><a href="{% url 'add_rent' %}" class="nav-link px-2 text-muted">Add Rent</a></li>
+          <!-- <li class="nav-item"><a href="{% url 'faq' %}" class="nav-link px-2 text-muted">FAQs</a></li>
+          <li class="nav-item"><a href="{% url 'profile' %}" class="nav-link px-2 text-muted">Profile</a></li> -->
+        </ul>
+        <p class="text-center text-muted">© 2024 Propify, Inc</p>
+      </footer>
+    </div>
 
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

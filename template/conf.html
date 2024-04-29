@@ -1,0 +1,18 @@
+{% extends "navbar.html" %}
+{% block content %}
+
+<h1>Do you want to confirm?</h1>
+
+<form method="POST">
+{% csrf_token %}
+
+
+<button type="submit" class="btn btn-outline-success">Yes</button>
+
+
+<a href="{% url 'user_home' %}">No</a>
+
+
+</form>
+
+{% endblock %}

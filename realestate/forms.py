@@ -17,6 +17,8 @@ class SellForm(forms.ModelForm):
 
 
 
+
+
 class RentForm(forms.ModelForm):
     class Meta:
         model = Rent
@@ -28,4 +30,4 @@ class RentForm(forms.ModelForm):
             'description': forms.Textarea(attrs={'class': 'form-control', 'style': 'height: 90px; width: 500px'}),
             'area': forms.NumberInput(attrs={'class': 'form-control', 'style': 'width: 500px;'}),
             'image': forms.FileInput(attrs={'class': 'form-control', 'style': 'width: 500px;'}),
-        }        
+        }    

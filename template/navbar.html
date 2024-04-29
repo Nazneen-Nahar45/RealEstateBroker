@@ -10,10 +10,17 @@
       crossorigin="anonymous"
     />
 
+
+    
+    
     <style>
       .navbar {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add the drop shadow */
       }
+      
+
+      
+
   </style>
 
   </head>
@@ -85,6 +92,22 @@
 
     <div>{% block content %} {% endblock %}</div>
     
+
+
+
+    <div class="container-as">
+      <footer class="py-3 my-0">
+        <ul class="nav justify-content-center border-bottom pb-7 mb-7">
+          <li class="nav-item"><a href="{% url 'user_home' %}" class="nav-link px-2 text-muted">Home</a></li>
+          <li class="nav-item"><a href="{% url 'buy' %}" class="nav-link px-2 text-muted">Buy</a></li>
+          <li class="nav-item"><a href="{% url 'rent' %}" class="nav-link px-2 text-muted">Sell</a></li>
+          <li class="nav-item"><a href="{% url 'faq' %}" class="nav-link px-2 text-muted">FAQs</a></li>
+          <li class="nav-item"><a href="{% url 'profile' %}" class="nav-link px-2 text-muted">Profile</a></li>
+        </ul>
+        <p class="text-center text-muted">© 2024 Propify, Inc</p>
+      </footer>
+    </div>
+
     
 
     <script

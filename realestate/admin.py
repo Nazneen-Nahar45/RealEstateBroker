@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Sell
-from .models import Agent
-from .models import Rent
+from .models import *
 
 admin.site.register([Sell])
 admin.site.register([Agent])
 admin.site.register([Rent])
+admin.site.register([Buyer])
+admin.site.register([Renter])

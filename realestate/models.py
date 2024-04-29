@@ -51,3 +51,28 @@ class Sell(models.Model):
     def __str__(self):
         return self.house_code 
 
+
+
+class Buyer(models.Model):
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    sell = models.ForeignKey(Sell, on_delete=models.CASCADE)
+    nid = models.IntegerField(default=1)
+    phone = models.CharField(max_length=11)
+    location = models.CharField(max_length=255)
+    city = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name 
+
+
+class Renter(models.Model):
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    rent = models.ForeignKey(Rent, on_delete=models.CASCADE)
+    phone = models.CharField(max_length=11)
+    location = models.CharField(max_length=255)
+    city = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name 

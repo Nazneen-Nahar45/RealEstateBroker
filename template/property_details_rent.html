@@ -33,7 +33,7 @@
           <p class="card-text">{{rent.description }}</p>
         </div>
         <div class="card-footer bg-transparent border-white">
-          <a href="{% url 'confirm' %}" class="btn btn-primary" style="width: 100px">Rent</a>
+          <a href="{% url 'rent_confirm' rent.id %}" class="btn btn-primary" style="width: 100px">Rent</a>
         </div>
       </div>
 

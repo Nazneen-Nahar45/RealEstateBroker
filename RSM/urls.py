@@ -46,6 +46,14 @@ urlpatterns = [
     path('logout_user/',r_view.logout_user, name= 'logout_user'),
     path('buy/<str:id>',r_view.property_details, name= 'property_details'),
     path('rent/<str:id>',r_view.property_details_rent, name= 'property_details_rent'),
+    path('logout_agent/',r_view.logout_agent, name= 'logout_agent'),
+    path('delete/<str:id>',r_view.delete_buy, name= 'delete_buy'),
+    path('buy/<str:id>/confirm/',r_view.buy_confirm, name= 'buy_confirm'),
+    path('rent/<str:id>/confirm/',r_view.rent_confirm, name= 'rent_confirm'),
+    path('success/',r_view.success, name= 'success'),
+    path('buy/<str:id>/con_buy/',r_view.con_buy, name= 'con_buy'),
+    path('buy_list_agent/',r_view.buy_list_agent, name= 'buy_list_agent'),
+
 ]
 
 
