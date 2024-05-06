@@ -14,21 +14,18 @@
     <div style="padding: 20px; text-align: center;">
         <h1>Add to Rent</h1>
     </div>
-
-    <form action="" method="POST" enctype="multipart/form-data">
-        <div style="padding: 5px;">
+    
+    <div style="padding: 5px;">
 
         </div>
-        <div class="container shadow p-3 mb-4 bg-white rounded" style="width: 40%;">
-            <div class="container-fluid">
-                <div class="row">
 
-                </div>
-            </div>
+    
+        
+    
 
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-11">
+        <div class="container-lg  d-flex justify-content-center">
+            <form action="" method="POST" enctype="multipart/form-data">
+                    
                         {% csrf_token %}
                         {{ form.as_p }}
 
@@ -38,15 +35,14 @@
 
                         <input type="submit" name="Submit" class="btn btn-primary" style="width: 500px;">
 
+                        <div style="padding: 10px;">
 
+                        </div>
 
-                    </div>
-                </div>
-
-
-
+                        </form>
             </div>
-    </form>
+                    
+    
 
     {% endblock %}
 

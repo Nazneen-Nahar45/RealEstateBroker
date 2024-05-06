@@ -45,17 +45,23 @@
     <style>
         .card-container {
             display: flex;
-            justify-content: flex-start;
+            justify-content: justify;
             /* Align items to the start of the flex container */
             flex-wrap: wrap;
         }
+        .custom-wide {
+            max-width: 1865px; /* Define your custom width here */
+        }
+
+
+        
     </style>
 
 
 
-    <div class="container-fluid">
-
-        <div class="card-container ">
+<div class="container-lg custom-wide shadow-lg">
+    <div class="d-flex justify-content-center"> <!-- Center align the card-container -->
+        <div class="card-container">
             {% for b in buy_list %}
             <div class="card mx-2 mb-3" style="max-width: 22rem;">
                 <div class="card-image-container" style="height: 200px; width: 351px; overflow: hidden;">
@@ -76,17 +82,12 @@
                     <a href="{% url 'property_details' b.id %}" class="btn btn-primary">Details</a>
                 </div>
             </div>
-
-
-
-   
-
-
-
             {% endfor %}
         </div>
-
     </div>
+</div>
+
+
 
     {% endblock %}
 
